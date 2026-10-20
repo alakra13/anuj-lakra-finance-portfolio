@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Anuj Lakra Finance Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Roboto+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap">
+<style>
+/* Layout: dark ledger-green bands open and close the page (identity, key facts, contact); a ruled paper body between them holds the evidence.
+   Palette: cool paper, deep navy, steel blue, brass gold. Amber marks model inputs. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --fg: #101a2b;
+  --muted: #5a6577;
+  --rule: #d9dde4;
+  --accent: #1e4f8a;
+  --input: #a16207;
+  --band: #0b1f3a;
+  --band-fg: #f2f5fa;
+  --band-muted: #aebbd0;
+  --band-line: #25405f;
+  --band-card: #112b4d;
+  --band-accent: #e2c27d;
+  --band-accent-fg: #1b1503;
+  --font-display: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c131f; --surface: #121c2c; --fg: #e8ecf3; --muted: #93a0b5; --rule: #25324a;
+    --accent: #7fb0ec; --input: #e0b25a; --band: #08172c; --band-line: #1c3350; --band-card: #0d2342;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c131f; --surface: #121c2c; --fg: #e8ecf3; --muted: #93a0b5; --rule: #25324a;
+  --accent: #7fb0ec; --input: #e0b25a; --band: #08172c; --band-line: #1c3350; --band-card: #0d2342;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.6; padding-block: 0; }
+.wrap { max-width: 1000px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--band-accent); outline-offset: 3px; }
+p { margin: 0 0 12px; }
+h2, h3 { text-wrap: balance; }
+
+/* ---------- top band ---------- */
+.band { background: var(--band); color: var(--band-fg); }
+.band a { color: var(--band-accent); }
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 18px 0; border-bottom: 1px solid var(--band-line); }
+.bar .mark { font-family: var(--font-display); font-weight: 600; font-size: 19px; }
+.bar nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+.bar nav a { color: var(--band-muted); text-decoration: none; }
+.bar nav a:hover { color: var(--band-fg); }
+.bar nav a { padding-bottom: 3px; border-bottom: 1px solid transparent; }
+.bar nav a[aria-current="page"] { color: var(--band-fg); border-bottom-color: var(--band-accent); }
+.bar a.mark { color: var(--band-fg); text-decoration: none; }
+.pagehead { padding: 44px 0 40px; }
+.pagehead h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0 0 12px; }
+.pagehead .lede { margin: 0; }
+.start-list { margin-top: 14px; border-bottom: 1px solid var(--rule); }
+.start-row { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; padding: 18px 4px; border-top: 1px solid var(--rule); text-decoration: none; color: var(--fg); transition: background .15s ease, padding-left .15s ease; }
+.start-row:hover { background: var(--surface); padding-left: 12px; }
+.s-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 1.3; }
+.s-desc { color: var(--muted); font-size: 15px; }
+.s-arrow { color: var(--accent); font-size: 20px; }
+@media (max-width: 800px) { .start-row { grid-template-columns: minmax(0, 1fr) auto; } .s-desc { grid-column: 1; } .s-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; } }
+.next { display: flex; justify-content: flex-end; padding: 28px 0 8px; border-top: 1px solid var(--rule); }
+.next a { font-weight: 600; text-decoration: none; }
+.next a:hover { text-decoration: underline; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 44px; padding: 56px 0 44px; align-items: start; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--band-accent); margin: 0 0 14px; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(40px, 7vw, 66px); line-height: 1; letter-spacing: -.02em; margin: 0 0 14px; }
+.subtitle { font-size: 18px; color: var(--band-fg); margin: 0 0 18px; font-weight: 500; }
+.lede { font-size: 17px; color: var(--band-muted); max-width: 56ch; margin: 0 0 28px; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-block; padding: 11px 20px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--band-accent); font-family: inherit; cursor: pointer; line-height: 1.3; }
+.btn.solid { background: var(--band-accent); color: var(--band-accent-fg); }
+.btn.line { background: transparent; color: var(--band-accent); }
+.btn:hover { filter: brightness(1.08); }
+
+.glance { background: var(--band-card); border: 1px solid var(--band-line); border-radius: 6px; padding: 6px 20px; }
+.glance h2 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--band-muted); margin: 14px 0 6px; font-weight: 500; }
+.glance dl { margin: 0; }
+.glance .row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--band-line); font-size: 14px; }
+.glance .row:first-of-type { border-top: 0; }
+.glance dt { color: var(--band-muted); flex: none; }
+.glance dd { margin: 0; text-align: right; font-weight: 500; }
+
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--band-line); }
+.fact { padding: 22px 20px 24px 0; }
+.fact + .fact { padding-left: 20px; border-left: 1px solid var(--band-line); }
+.fact b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 30px; line-height: 1.1; color: var(--band-fg); font-variant-numeric: tabular-nums; }
+.fact span { display: block; margin-top: 6px; font-size: 13px; color: var(--band-muted); line-height: 1.4; }
+
+/* ---------- body sections ---------- */
+section { padding: 52px 0; border-top: 1px solid var(--rule); }
+section.first-visible { border-top: 0; }
+.sec-head { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 40px; }
+.sec-head > h2 { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 6px 0 0; }
+.sec-body { min-width: 0; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.25; margin: 0 0 4px; }
+.meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+
+.edu { display: grid; gap: 28px; }
+.edu article { padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+.edu article:last-child { border-bottom: 0; padding-bottom: 0; }
+.edu ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+.edu li { margin-bottom: 4px; }
+
+.proj { display: grid; gap: 20px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 24px; min-width: 0; }
+.card-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.card-top .kind { color: var(--accent); font-weight: 500; }
+.card-top .when { color: var(--muted); }
+.card h3 { font-size: 23px; margin-bottom: 6px; }
+.card .meta { margin-bottom: 14px; }
+.card .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.tag { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--rule); border-radius: 3px; padding: 2px 8px; color: var(--muted); }
+.outcome { margin: 16px 0 0; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 14.5px; }
+.outcome b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+
+.role-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+.role-head .meta { margin: 0; }
+.role-list { margin: 12px 0 0; padding-left: 18px; }
+.role-list li { margin-bottom: 8px; }
+
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
+#skills .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.skills h3 { font-size: 17px; margin-bottom: 8px; }
+.skills ul { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+.skills li { padding: 6px 0; border-top: 1px solid var(--rule); }
+.skills p { font-size: 15px; color: var(--muted); }
+
+/* DCF demo */
+.dcf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin-top: 6px; }
+.ctrl { display: grid; gap: 14px; }
+.ctrl label { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; }
+.ctrl output { font-family: var(--font-mono); color: var(--input); font-weight: 500; font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.out .big { font-family: var(--font-mono); font-size: 38px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.out .lab { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.split { display: flex; height: 14px; border-radius: 3px; overflow: hidden; margin: 16px 0 8px; background: var(--rule); }
+.split i { display: block; height: 100%; }
+.split .a { background: var(--accent); }
+.split .b { background: var(--input); }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 2px; vertical-align: -1px; }
+.legend .a::before { background: var(--accent); }
+.legend .b::before { background: var(--input); }
+.note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+.tbl { overflow-x: auto; margin-top: 16px; }
+table { border-collapse: collapse; width: 100%; font-family: var(--font-mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; color: var(--muted); }
+th { font-weight: 500; color: var(--muted); }
+
+/* ---------- contact band ---------- */
+.contact-band { margin-top: 24px; }
+.view-contact .contact-band { margin-top: 0; }
+.contact-band .wrap { padding-top: 0; padding-bottom: 28px; }
+.view-contact .contact-band .wrap { padding-top: 56px; }
+.contact-band h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -.01em; }
+.contact-band p { color: var(--band-muted); max-width: 54ch; }
+.contact-rows { display: grid; gap: 12px; margin: 26px 0 40px; max-width: 520px; }
+.crow { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 16px; border: 1px solid var(--band-line); border-radius: 6px; background: var(--band-card); }
+.crow .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--band-muted); display: block; }
+.crow .v { overflow-wrap: anywhere; font-weight: 500; user-select: all; }
+.copy { background: transparent; color: var(--band-accent); border: 1px solid var(--band-accent); border-radius: 4px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+footer { border-top: 1px solid var(--band-line); padding: 26px 0 32px; display: grid; gap: 22px; font-size: 13px; color: var(--band-muted); }
+.foot-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.foot-base { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
+.foot-base .line-tag { font-style: italic; flex: 1 1 280px; text-align: center; }
+.to-top { background: transparent; border: 1px solid var(--band-line); color: var(--band-accent); border-radius: 4px; width: 36px; height: 36px; font-size: 17px; line-height: 1; cursor: pointer; }
+.to-top:hover { border-color: var(--band-accent); }
+@media (max-width: 800px) { .foot-base .line-tag { text-align: left; order: 3; flex-basis: 100%; } }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 40px; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact:nth-child(3) { padding-left: 0; border-left: 0; }
+  .fact:nth-child(n+3) { border-top: 1px solid var(--band-line); }
+  .sec-head { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .dcf { grid-template-columns: minmax(0, 1fr); }
+  .skills, #skills .skills { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <header class="bar">
+      <a class="mark" href="#home" data-nav="home">Anuj Lakra</a>
+      <nav aria-label="Pages">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#background" data-nav="background">Background</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#model" data-nav="model">DCF model</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="pagehead" id="pagehead" hidden>
+      <p class="eyebrow" id="pageEyebrow"></p>
+      <h1 id="pageTitle"></h1>
+      <p class="lede" id="pageSub"></p>
+    </div>
+
+    <div class="hero" data-view="home">
+      <div>
+        <p class="eyebrow">Entry-level finance candidate</p>
+        <h1>Anuj Lakra</h1>
+        <p class="subtitle">M.S. Finance, Johns Hopkins · B.S. Finance, Penn State</p>
+        <p class="lede">I build valuation models, equity research and quantitative strategies, and I am sitting the CFA Level II exam in November 2026. I am looking for an entry-level role in equity research, quantitative investing, or corporate finance (FP&amp;A).</p>
+        <div class="cta">
+          <a class="btn solid" href="#projects" data-nav="projects">View projects</a>
+          <a class="btn line" href="#contact" data-nav="contact">Contact me</a>
+          <a class="btn line" href="https://www.linkedin.com/in/anujlakra/">LinkedIn</a>
+        </div>
+      </div>
+      <aside class="glance" aria-label="At a glance">
+        <h2>At a glance</h2>
+        <dl>
+          <div class="row"><dt>Target roles</dt><dd>Equity research, quant, FP&amp;A</dd></div>
+          <div class="row"><dt>Location</dt><dd>Hayward, CA</dd></div>
+          <div class="row"><dt>Currently</dt><dd>Financial Tax Analyst</dd></div>
+          <div class="row"><dt>Credential</dt><dd>CFA Level II candidate</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="facts" data-view="home">
+      <div class="fact"><b>JHU</b><span>M.S. Finance (Econometrics), Carey Business School, 2025</span></div>
+      <div class="fact"><b>CFA II</b><span>Level II candidate, exam November 2026</span></div>
+      <div class="fact"><b>3</b><span>Equity research and quant projects</span></div>
+      <div class="fact"><b>100+</b><span>Tax returns prepared and reviewed</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main>
+    <section id="education" data-view="background">
+      <div class="sec-head">
+        <h2>Education</h2>
+        <div class="sec-body edu">
+          <article>
+            <h3>M.S. in Finance (Econometrics)</h3>
+            <p class="meta">Johns Hopkins University, Carey Business School · Baltimore, MD · Aug 2024 – Aug 2025</p>
+            <ul>
+              <li>Coursework: Financial Statement Analysis, Fixed Income, Machine Learning for Finance, Derivatives, Financial Modeling &amp; Valuation, Computational Finance, Empirical Finance, Economics</li>
+              <li>STEM-designated program</li>
+              <li>Dean's Scholarship recipient</li>
+            </ul>
+          </article>
+          <article>
+            <h3>B.S. in Finance</h3>
+            <p class="meta">The Pennsylvania State University, Erie · AACSB accredited · Aug 2021 – May 2024</p>
+            <ul>
+              <li>Dean's List, 4 semesters</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" data-view="projects">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <div class="sec-body proj">
+          <article class="card">
+            <div class="card-top"><span class="kind">Equity research</span><span class="when">Jan – May 2025</span></div>
+            <h3>Lowe's Companies (NYSE: LOW) equity research report</h3>
+            <p class="meta">Financial Modeling &amp; Valuation, Johns Hopkins</p>
+            <p>Built a 5-year financial model of revenue, operating margins and free cash flow, then valued the company with a DCF and comparable-company analysis. The report also covers strategy, liquidity, capital allocation and industry conditions.</p>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">DCF</span><span class="tag">Comparable companies</span><span class="tag">Monte Carlo</span></div>
+            <p class="outcome"><b>Result</b>A Monte Carlo simulation of tariff, inflation and macro assumptions confirmed the valuation held up across scenarios.</p>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="kind">Quantitative strategy</span><span class="when">May – Aug 2025</span></div>
+            <h3>ML-enhanced EMA crossover trading strategy</h3>
+            <p class="meta">Advanced Hedge Fund Strategies, Johns Hopkins</p>
+            <p>Developed a multi-asset trend-following strategy in Python that combines EMA crossover signals with a Random Forest confidence filter, applied across equities, bonds, commodities and FX. Features came from 12 technical indicators, including 14-day RSI, 20-day Z-score and 10-day momentum.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Random Forest</span><span class="tag">Backtrader</span></div>
+            <p class="outcome"><b>Design</b>Dollar-neutral portfolio framework that removes market beta exposure, enforces risk controls and reduces turnover.</p>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="kind">Equity research</span><span class="when">Nov 2024 – Feb 2025</span></div>
+            <h3>CFA Institute Research Challenge: Franklin Templeton</h3>
+            <p class="meta">CFA Society Baltimore &amp; Washington D.C.</p>
+            <p>Conducted fundamental equity research on Franklin Templeton, analyzing its financial statements, profitability, operating strategy and business model. Used DuPont and financial ratio analysis to track returns and operating efficiency over multiple fiscal years.</p>
+            <div class="tags"><span class="tag">Equity research</span><span class="tag">DuPont analysis</span><span class="tag">Ratio analysis</span></div>
+            <p class="outcome"><b>Focus</b>How ETF adoption, fee compression, executive compensation and shifting investor preferences affect revenue, margins and valuation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" data-view="background">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <div class="sec-body">
+          <div class="role-head">
+            <h3>Financial Tax Analyst, Tax Magic Inc.</h3>
+            <p class="meta">Dec 2025 – Present · Hayward, CA</p>
+          </div>
+          <ul class="role-list">
+            <li>Prepared and reviewed 100+ individual and small business tax returns, analyzing client financials to identify deductions, credits and tax-efficiency strategies.</li>
+            <li>Assessed income, liabilities and deduction eligibility from client financial statements, and kept documentation compliant with federal and state regulations for sensitive client data.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" data-view="background">
+      <div class="sec-head">
+        <h2>Skills</h2>
+        <div class="sec-body skills">
+          <div><h3>Modeling</h3><ul><li>DCF, DDM, LBO fundamentals</li><li>Monte Carlo simulation</li><li>Sensitivity analysis</li><li>FP&amp;A, portfolio management</li></ul></div>
+          <div><h3>Tools</h3><ul><li>Excel (advanced)</li><li>Python: pandas, NumPy, scikit-learn</li><li>Capital IQ, Bloomberg</li><li>Tableau</li></ul></div>
+          <div><h3>AI and machine learning</h3><ul><li>Prompt engineering</li><li>LLMs for research and data cleaning, checked against filings and source data</li><li>Machine learning for finance (JHU coursework)</li><li>Random Forest signal filtering, scikit-learn</li><li>Feature engineering from technical indicators</li><li>Python backtesting with Backtrader</li></ul></div>
+          <div><h3>Credentials and honors</h3><ul><li>CFA Level II candidate, exam Nov 2026</li><li>Prompt Engineering Certificate, Columbia University</li><li>Fundamentals of Quantitative Modeling, University of Pennsylvania</li><li>Dean's Scholarship, Johns Hopkins</li><li>Dean's List, 4 semesters, Penn State</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" data-view="home">
+      <div class="sec-head">
+        <h2>Start here</h2>
+        <div class="sec-body">
+          <h3>What are you looking for?</h3>
+          <div class="start-list">
+            <a class="start-row" href="#projects" data-nav="projects"><span class="s-title">Equity research and quant work</span><span class="s-desc">Lowe's and Franklin Templeton research, plus an ML-enhanced trading strategy.</span><span class="s-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="start-row" href="#background" data-nav="background"><span class="s-title">Education and experience</span><span class="s-desc">Johns Hopkins M.S., Penn State B.S., CFA Level II candidate, and my analyst role.</span><span class="s-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="start-row" href="#background" data-nav="background" data-scroll="skills"><span class="s-title">Skills and certifications</span><span class="s-desc">Modeling, Python, Capital IQ and Bloomberg, AI tools, and my Columbia and Penn certificates.</span><span class="s-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="start-row" href="#model" data-nav="model"><span class="s-title">A working valuation model</span><span class="s-desc">Change growth, margin and WACC and watch a five-year DCF update.</span><span class="s-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="start-row" href="#contact" data-nav="contact"><span class="s-title">Get in touch</span><span class="s-desc">Email or LinkedIn, whichever is easier for you.</span><span class="s-arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" data-view="home">
+      <div class="sec-head">
+        <h2>Why finance</h2>
+        <div class="sec-body skills">
+          <div><h3>Studied it twice</h3><p>A B.S. in Finance at Penn State, then an M.S. in Finance at Johns Hopkins with an econometrics focus and coursework in machine learning, derivatives and computational finance.</p></div>
+          <div><h3>Built it on my own terms</h3><p>I wrote a full equity research report on Lowe's, took part in the CFA Institute Research Challenge, and built a hedge-fund-style trading strategy in Python.</p></div>
+          <div><h3>Still going</h3><p>I am sitting the CFA Level II exam in November 2026 and working as a financial tax analyst while I look for my first full finance role.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="model" data-view="model">
+      <div class="sec-head">
+        <h2>DCF model</h2>
+        <div class="sec-body">
+          <h3>Five-year DCF you can adjust</h3>
+          <p class="meta">Illustrative company · $M · not investment advice</p>
+          <div class="dcf">
+            <div class="ctrl">
+              <div><label for="g">Revenue growth <output id="gO">12%</output></label><input id="g" type="range" min="0" max="30" step="1" value="12"></div>
+              <div><label for="m">EBIT margin <output id="mO">22%</output></label><input id="m" type="range" min="5" max="45" step="1" value="22"></div>
+              <div><label for="w">WACC <output id="wO">9.0%</output></label><input id="w" type="range" min="5" max="14" step="0.5" value="9"></div>
+              <div><label for="t">Terminal growth <output id="tO">2.5%</output></label><input id="t" type="range" min="0" max="4" step="0.5" value="2.5"></div>
+            </div>
+            <div class="out" aria-live="polite">
+              <div class="lab">Enterprise value</div>
+              <div class="big" id="ev">$0M</div>
+              <div class="split" aria-hidden="true"><i class="a" id="barA"></i><i class="b" id="barB"></i></div>
+              <div class="legend"><span class="a" id="lgA"></span><span class="b" id="lgB"></span></div>
+            </div>
+          </div>
+          <div class="tbl">
+            <table>
+              <thead><tr><th>$M</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="note">Amber figures are the inputs you control. Base revenue $100M, 25% tax rate, 25% of after-tax EBIT reinvested. Sample numbers for demonstration, not a real company.</p>
+        </div>
+      </div>
+    </section>
+  <div class="next" id="next"></div>
+  </main>
+</div>
+
+<div class="band contact-band">
+  <div class="wrap">
+    <div class="contact-pane" data-view="contact">
+    <h2>Open to entry-level finance roles</h2>
+    <p>Equity research, quantitative investing and corporate finance (FP&amp;A). Based in Hayward, CA.</p>
+    <div class="contact-rows">
+      <div class="crow">
+        <div><span class="k">Email</span><span class="v" id="email">anujlakra13@gmail.com</span></div>
+        <button class="copy" id="copyBtn" type="button">Copy</button>
+      </div>
+      <div class="crow">
+        <div><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/anujlakra/">linkedin.com/in/anujlakra</a></div>
+      </div>
+    </div>
+    </div>
+    <footer>
+      <div class="foot-actions">
+        <a class="btn solid" href="mailto:anujlakra13@gmail.com">Email me</a>
+        <a class="btn line" href="https://www.linkedin.com/in/anujlakra/">LinkedIn</a>
+      </div>
+      <div class="foot-base">
+        <span>© 2026 Anuj Lakra</span>
+        <span class="line-tag">Built with DCFs, spreadsheets, and a healthy respect for terminal value.</span>
+        <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+  function run() {
+    var g = +$("g").value / 100, m = +$("m").value / 100, w = +$("w").value / 100, t = +$("t").value / 100;
+    $("gO").textContent = (g * 100).toFixed(0) + "%";
+    $("mO").textContent = (m * 100).toFixed(0) + "%";
+    $("wO").textContent = (w * 100).toFixed(1) + "%";
+    $("tO").textContent = (t * 100).toFixed(1) + "%";
+    var rev = 100, pv = 0, fcfs = [], revs = [], ebits = [];
+    for (var i = 1; i <= 5; i++) {
+      rev *= 1 + g;
+      var ebit = rev * m, fcf = ebit * 0.75 * 0.75;
+      revs.push(rev); ebits.push(ebit); fcfs.push(fcf);
+      pv += fcf / Math.pow(1 + w, i);
+    }
+    var spread = Math.max(w - t, 0.005);
+    var tv = fcfs[4] * (1 + t) / spread;
+    var pvTv = tv / Math.pow(1 + w, 5);
+    var ev = pv + pvTv;
+    $("ev").textContent = "$" + fmt(ev) + "M";
+    $("barA").style.width = (pv / ev * 100) + "%";
+    $("barB").style.width = (pvTv / ev * 100) + "%";
+    $("lgA").textContent = "Years 1–5: $" + fmt(pv) + "M (" + Math.round(pv / ev * 100) + "%)";
+    $("lgB").textContent = "Terminal value: $" + fmt(pvTv) + "M (" + Math.round(pvTv / ev * 100) + "%)";
+    function row(label, arr) {
+      return "<tr><td>" + label + "</td>" + arr.map(function (v) { return "<td>" + fmt(v) + "</td>"; }).join("") + "</tr>";
+    }
+    $("rows").innerHTML = row("Revenue", revs) + row("EBIT", ebits) + row("Free cash flow", fcfs);
+  }
+  ["g", "m", "w", "t"].forEach(function (id) { $(id).addEventListener("input", run); });
+  run();
+
+  var VIEWS = ["home", "background", "projects", "model", "contact"];
+  var META = {
+    background: ["Background", "Education, experience and skills", "Two finance degrees, CFA Level II in progress, and hands-on analyst work."],
+    projects: ["Projects", "Selected work", "Equity research and a quantitative trading strategy, each built end to end."],
+    model: ["DCF model", "Valuation you can adjust", "Move the inputs and watch enterprise value update."]
+  };
+  var NEXT = { home: ["background", "Background"], background: ["projects", "Projects"], projects: ["model", "DCF model"], model: ["contact", "Contact"] };
+  function show(v, noScroll) {
+    if (VIEWS.indexOf(v) < 0) v = "home";
+    var secs = document.querySelectorAll("section.first-visible");
+    for (var k = 0; k < secs.length; k++) secs[k].classList.remove("first-visible");
+    var els = document.querySelectorAll("[data-view]"), firstSet = false;
+    for (var i = 0; i < els.length; i++) {
+      var on = els[i].getAttribute("data-view") === v;
+      els[i].hidden = !on;
+      if (on && !firstSet && els[i].tagName === "SECTION") { els[i].classList.add("first-visible"); firstSet = true; }
+    }
+    var m = META[v], ph = $("pagehead");
+    ph.hidden = !m;
+    if (m) { $("pageEyebrow").textContent = m[0]; $("pageTitle").textContent = m[1]; $("pageSub").textContent = m[2]; }
+    var links = document.querySelectorAll("[data-nav]");
+    for (var n = 0; n < links.length; n++) {
+      if (links[n].closest("nav")) {
+        if (links[n].getAttribute("data-nav") === v) links[n].setAttribute("aria-current", "page");
+        else links[n].removeAttribute("aria-current");
+      }
+    }
+    document.body.className = "view-" + v;
+    var nx = $("next"), t = NEXT[v];
+    nx.hidden = !t;
+    if (t) nx.innerHTML = '<a href="#' + t[0] + '" data-nav="' + t[0] + '">Next: ' + t[1] + ' &rarr;</a>';
+    if (!noScroll) window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("[data-nav]") : null;
+    if (!a) return;
+    e.preventDefault();
+    var v = a.getAttribute("data-nav");
+    try { history.replaceState(null, "", "#" + v); } catch (err) {}
+    show(v);
+    var sc = a.getAttribute("data-scroll");
+    if (sc) { var tg = $(sc); if (tg) tg.scrollIntoView(); }
+  });
+  window.addEventListener("hashchange", function () { show((location.hash || "").replace("#", "")); });
+  show((location.hash || "").replace("#", ""), true);
+
+  var btn = $("copyBtn");
+  function selectEmail() {
+    var r = document.createRange(); r.selectNodeContents($("email"));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  btn.addEventListener("click", function () {
+    var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = "Copy"; }, 1800); };
+    try {
+      navigator.clipboard.writeText($("email").textContent).then(function () { done("Copied"); }, function () { selectEmail(); done("Press Ctrl+C"); });
+    } catch (e) { selectEmail(); done("Press Ctrl+C"); }
+  });
+})();
+</script>
+
+</body>
+</html>
