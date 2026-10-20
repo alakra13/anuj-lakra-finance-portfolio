@@ -67,6 +67,31 @@ h2, h3 { text-wrap: balance; }
 .pagehead h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0 0 12px; }
 .pagehead .lede { margin: 0; }
 .why-lead { font-family: var(--font-display); font-size: 21px; line-height: 1.55; max-width: 60ch; margin: 0 0 30px; }
+.card { transition: border-color .15s ease; }
+.card:hover { border-color: var(--accent); }
+.bar nav { align-items: center; }
+.theme-btn { background: transparent; border: 1px solid var(--band-line); color: var(--band-muted); border-radius: 4px; width: 32px; height: 28px; cursor: pointer; font-size: 14px; line-height: 1; }
+.theme-btn:hover { color: var(--band-fg); border-color: var(--band-accent); }
+.ticker { overflow: hidden; border-top: 1px solid var(--band-line); padding: 12px 0; }
+.ticker-track { display: flex; width: max-content; animation: tick 50s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.tk { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--band-muted); padding: 0 22px; white-space: nowrap; }
+.tk i { font-style: normal; color: var(--band-accent); margin-left: 6px; }
+@keyframes tick { to { transform: translateX(-50%); } }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 0 0 18px; }
+.chip { font: inherit; font-size: 14px; padding: 6px 14px; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--fg); cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.chips .count { margin-left: auto; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.xp-panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 22px; min-height: 150px; }
+.xp-panel h3 { margin-bottom: 8px; }
+.xp-panel p { max-width: 62ch; }
+.xp-panel a { font-weight: 600; text-decoration: none; }
+.xp-panel a:hover { text-decoration: underline; }
+.sens-title { font-size: 14px; color: var(--muted); margin: 26px 0 0; }
+#sens th, #sens td { text-align: center; }
+#sens td:first-child, #sens th:first-child { text-align: left; }
+#sens td.cur { outline: 2px solid var(--accent); outline-offset: -2px; font-weight: 500; }
 .start-list { margin-top: 14px; border-bottom: 1px solid var(--rule); }
 .start-row { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; padding: 18px 4px; border-top: 1px solid var(--rule); text-decoration: none; color: var(--fg); transition: background .15s ease, padding-left .15s ease; }
 .start-row:hover { background: var(--surface); padding-left: 12px; }
@@ -178,6 +203,10 @@ th { font-weight: 500; color: var(--muted); }
 .crow .v { overflow-wrap: anywhere; font-weight: 500; user-select: all; }
 .copy { background: transparent; color: var(--band-accent); border: 1px solid var(--band-accent); border-radius: 4px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
 footer { border-top: 1px solid var(--band-line); padding: 26px 0 32px; display: grid; gap: 22px; font-size: 13px; color: var(--band-muted); }
+.foot-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3.6vw, 30px); line-height: 1.2; color: var(--band-fg); margin: 0 0 8px; }
+.foot-sub { font-size: 15px; color: var(--band-muted); margin: 0; max-width: 56ch; }
+.foot-title sup, .foot-sub sup { color: var(--band-accent); }
+.foot-notes p { margin: 0 0 4px; font-family: var(--font-mono); font-size: 12px; color: var(--band-muted); }
 .foot-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .foot-base { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
 .foot-base .line-tag { font-style: italic; flex: 1 1 280px; text-align: center; }
@@ -195,7 +224,7 @@ footer { border-top: 1px solid var(--band-line); padding: 26px 0 32px; display: 
   .skills, #skills .skills { grid-template-columns: minmax(0, 1fr); gap: 20px; }
 }
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
@@ -210,6 +239,7 @@ html { scroll-behavior: smooth; }
         <a href="#projects" data-nav="projects">Projects</a>
         <a href="#model" data-nav="model">DCF model</a>
         <a href="#contact" data-nav="contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark mode">&#9680;</button>
       </nav>
     </header>
 
@@ -235,7 +265,7 @@ html { scroll-behavior: smooth; }
         <h2>At a glance</h2>
         <dl>
           <div class="row"><dt>Target roles</dt><dd>Equity research, Quant, FP&amp;A</dd></div>
-          <div class="row"><dt>Location</dt><dd>Hayward, CA</dd></div>
+          <div class="row"><dt>Location</dt><dd>Hayward, CA<br>Willing to relocate</dd></div>
           <div class="row"><dt>Currently</dt><dd>Financial Tax Analyst</dd></div>
           <div class="row"><dt>Credential</dt><dd>CFA Level II Candidate</dd></div>
         </dl>
@@ -245,11 +275,13 @@ html { scroll-behavior: smooth; }
     <div class="facts" data-view="home">
       <div class="fact"><b>JHU</b><span>M.S. Finance (Econometrics), Carey Business School, 2025</span></div>
       <div class="fact"><b>CFA II</b><span>Level II Candidate, exam November 2026</span></div>
-      <div class="fact"><b>3</b><span>Equity research and quant projects</span></div>
-      <div class="fact"><b>100+</b><span>Tax returns prepared and reviewed</span></div>
+      <div class="fact"><b data-count="3">3</b><span>Equity research and quant projects</span></div>
+      <div class="fact"><b data-count="100" data-suffix="+">100+</b><span>Tax returns prepared and reviewed</span></div>
     </div>
   </div>
 </div>
+
+<div class="band ticker" data-view="home" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
 
 <div class="wrap">
   <main>
@@ -281,6 +313,12 @@ html { scroll-behavior: smooth; }
       <div class="sec-head">
         <h2>Selected work</h2>
         <div class="sec-body proj">
+          <div class="chips" role="group" aria-label="Filter projects">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-filter="Equity research" aria-pressed="false">Equity research</button>
+            <button class="chip" type="button" data-filter="Quantitative strategy" aria-pressed="false">Quantitative strategy</button>
+            <span class="count" id="projCount" aria-live="polite"></span>
+          </div>
           <article class="card">
             <div class="card-top"><span class="kind">Equity research</span><span class="when">Jan – May 2025</span></div>
             <h3>Lowe's Companies (NYSE: LOW) equity research report</h3>
@@ -321,6 +359,27 @@ html { scroll-behavior: smooth; }
             <li>Prepared and reviewed 100+ individual and small business tax returns, analyzing client financials to identify deductions, credits and tax-efficiency strategies.</li>
             <li>Assessed income, liabilities and deduction eligibility from client financial statements, and kept documentation compliant with federal and state regulations for sensitive client data.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="explorer" data-view="background">
+      <div class="sec-head">
+        <h2>Skill explorer</h2>
+        <div class="sec-body">
+          <h3>Pick a skill to see where I used it</h3>
+          <div class="chips" id="xpChips" role="group" aria-label="Skills" style="margin-top:14px">
+            <button class="chip" type="button" data-xp="dcf" aria-pressed="true">DCF valuation</button>
+            <button class="chip" type="button" data-xp="montecarlo" aria-pressed="false">Monte Carlo</button>
+            <button class="chip" type="button" data-xp="python" aria-pressed="false">Python</button>
+            <button class="chip" type="button" data-xp="ml" aria-pressed="false">Machine learning</button>
+            <button class="chip" type="button" data-xp="risk" aria-pressed="false">Risk control</button>
+            <button class="chip" type="button" data-xp="dupont" aria-pressed="false">DuPont analysis</button>
+            <button class="chip" type="button" data-xp="fsa" aria-pressed="false">Financial statements</button>
+            <button class="chip" type="button" data-xp="quantmod" aria-pressed="false">Quantitative modeling</button>
+            <button class="chip" type="button" data-xp="prompt" aria-pressed="false">Prompt engineering</button>
+          </div>
+          <div class="xp-panel" id="xpPanel" aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -373,6 +432,11 @@ html { scroll-behavior: smooth; }
         <div class="sec-body">
           <h3>Five-year DCF you can adjust</h3>
           <p class="meta">Illustrative company · $M · not investment advice</p>
+          <div class="chips" role="group" aria-label="Scenario presets">
+            <button class="chip" type="button" data-preset="bear" aria-pressed="false">Bear case</button>
+            <button class="chip" type="button" data-preset="base" aria-pressed="false">Base case</button>
+            <button class="chip" type="button" data-preset="bull" aria-pressed="false">Bull case</button>
+          </div>
           <div class="dcf">
             <div class="ctrl">
               <div><label for="g">Revenue growth <output id="gO">12%</output></label><input id="g" type="range" min="0" max="30" step="1" value="12"></div>
@@ -393,6 +457,8 @@ html { scroll-behavior: smooth; }
               <tbody id="rows"></tbody>
             </table>
           </div>
+          <p class="sens-title">Sensitivity: enterprise value ($M) by WACC (rows) and terminal growth (columns). The outlined cell matches your current inputs.</p>
+          <div class="tbl"><table id="sens"></table></div>
           <p class="note">Amber figures are the inputs you control. Base revenue $100M, 25% tax rate, 25% of after-tax EBIT reinvested. Sample numbers for demonstration, not a real company.</p>
         </div>
       </div>
@@ -405,7 +471,7 @@ html { scroll-behavior: smooth; }
   <div class="wrap">
     <div class="contact-pane" data-view="contact">
     <h2>Open to entry-level finance roles</h2>
-    <p>Equity research, quantitative investing and corporate finance (FP&amp;A). Based in Hayward, CA.</p>
+    <p>Equity research, quantitative investing and corporate finance (FP&amp;A). Based in Hayward, CA and willing to relocate.</p>
     <div class="contact-rows">
       <div class="crow">
         <div><span class="k">Email</span><span class="v" id="email">anujlakra13@gmail.com</span></div>
@@ -417,13 +483,21 @@ html { scroll-behavior: smooth; }
     </div>
     </div>
     <footer>
+      <div class="foot-close">
+        <p class="foot-title">That's the closing bell.<sup>*</sup></p>
+        <p class="foot-sub">Thanks for reading all the way to the end. If anything here sparked a question, I would enjoy hearing from you.<sup>&dagger;</sup></p>
+      </div>
       <div class="foot-actions">
         <a class="btn solid" href="mailto:anujlakra13@gmail.com">Email me</a>
         <a class="btn line" href="https://www.linkedin.com/in/anujlakra/">LinkedIn</a>
       </div>
+      <div class="foot-notes">
+        <p>* Markets close at 4:00 p.m. Eastern. My inbox does not.</p>
+        <p>&dagger; Assumes a terminal growth rate of curiosity, forever.</p>
+      </div>
       <div class="foot-base">
         <span>© 2026 Anuj Lakra</span>
-        <span class="line-tag">Built with DCFs, spreadsheets, and a healthy respect for terminal value.</span>
+        <span class="line-tag">No assumptions were harmed in the making of this website.</span>
         <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
       </div>
     </footer>
@@ -434,6 +508,44 @@ html { scroll-behavior: smooth; }
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+  function calc(g, m, w, t) {
+    var rev = 100, pv = 0, f = 0;
+    for (var i = 1; i <= 5; i++) { rev *= 1 + g; f = rev * m * 0.75 * 0.75; pv += f / Math.pow(1 + w, i); }
+    return pv + (f * (1 + t) / Math.max(w - t, 0.005)) / Math.pow(1 + w, 5);
+  }
+  function renderSens(g, m, w, t) {
+    var steps = [-1, -0.5, 0, 0.5, 1];
+    var ts = steps.map(function (d) { return t + d / 100; });
+    var ws = steps.map(function (d) { return w + d / 100; });
+    var grid = [], mn = Infinity, mx = -Infinity;
+    ws.forEach(function (wv) {
+      grid.push(ts.map(function (tv) {
+        if (wv - tv < 0.01) return null;
+        var e = calc(g, m, wv, tv); if (e < mn) mn = e; if (e > mx) mx = e; return e;
+      }));
+    });
+    var html = "<thead><tr><th>WACC</th>" + ts.map(function (tv) { return "<th>" + (tv * 100).toFixed(1) + "%</th>"; }).join("") + "</tr></thead><tbody>";
+    grid.forEach(function (row, r) {
+      html += "<tr><td>" + (ws[r] * 100).toFixed(1) + "%</td>";
+      row.forEach(function (e, c) {
+        var cls = (r === 2 && c === 2) ? ' class="cur"' : "";
+        if (e === null) { html += "<td" + cls + ">n/m</td>"; return; }
+        var pct = 8 + (e - mn) / ((mx - mn) || 1) * 40;
+        html += "<td" + cls + ' style="background: color-mix(in srgb, var(--accent) ' + pct.toFixed(0) + '%, transparent)">' + fmt(e) + "</td>";
+      });
+      html += "</tr>";
+    });
+    $("sens").innerHTML = html + "</tbody>";
+  }
+  var PRESETS = { bear: [5, 16, 11, 1.5], base: [12, 22, 9, 2.5], bull: [20, 30, 8, 3] };
+  function markPreset(g, m, w, t) {
+    var btns = document.querySelectorAll("[data-preset]");
+    for (var i = 0; i < btns.length; i++) {
+      var p = PRESETS[btns[i].getAttribute("data-preset")];
+      var same = Math.abs(p[0] - g) < 0.01 && Math.abs(p[1] - m) < 0.01 && Math.abs(p[2] - w) < 0.01 && Math.abs(p[3] - t) < 0.01;
+      btns[i].setAttribute("aria-pressed", same ? "true" : "false");
+    }
+  }
   function run() {
     var g = +$("g").value / 100, m = +$("m").value / 100, w = +$("w").value / 100, t = +$("t").value / 100;
     $("gO").textContent = (g * 100).toFixed(0) + "%";
@@ -460,9 +572,87 @@ html { scroll-behavior: smooth; }
       return "<tr><td>" + label + "</td>" + arr.map(function (v) { return "<td>" + fmt(v) + "</td>"; }).join("") + "</tr>";
     }
     $("rows").innerHTML = row("Revenue", revs) + row("EBIT", ebits) + row("Free cash flow", fcfs);
+    renderSens(g, m, w, t);
+    markPreset(g * 100, m * 100, w * 100, t * 100);
   }
   ["g", "m", "w", "t"].forEach(function (id) { $(id).addEventListener("input", run); });
   run();
+
+  document.querySelectorAll("[data-preset]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var p = PRESETS[b.getAttribute("data-preset")];
+      $("g").value = p[0]; $("m").value = p[1]; $("w").value = p[2]; $("t").value = p[3];
+      run();
+    });
+  });
+
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function countUp() {
+    if (reduce) return;
+    document.querySelectorAll("[data-count]").forEach(function (el) {
+      var end = +el.getAttribute("data-count"), suf = el.getAttribute("data-suffix") || "", t0 = null;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min((ts - t0) / 900, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * e) + suf;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      el.textContent = "0" + suf;
+      requestAnimationFrame(step);
+    });
+  }
+
+  var TK = ["DCF", "Monte Carlo", "Random Forest", "Python", "Excel", "Bloomberg", "Capital IQ", "DuPont analysis", "CFA Level II", "FP&amp;A", "Equity research", "Backtesting"];
+  var tkHtml = "";
+  for (var rpt = 0; rpt < 2; rpt++) TK.forEach(function (x) { tkHtml += '<span class="tk">' + x + " <i>&#9650;</i></span>"; });
+  $("tickerTrack").innerHTML = tkHtml;
+
+  var pChips = document.querySelectorAll("[data-filter]");
+  function applyFilter(f) {
+    var cards = document.querySelectorAll("#work .card"), n = 0;
+    cards.forEach(function (c) {
+      var on = f === "all" || c.querySelector(".kind").textContent === f;
+      c.hidden = !on; if (on) n++;
+    });
+    pChips.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-filter") === f ? "true" : "false"); });
+    $("projCount").textContent = "Showing " + n + " of " + cards.length;
+  }
+  pChips.forEach(function (b) { b.addEventListener("click", function () { applyFilter(b.getAttribute("data-filter")); }); });
+  applyFilter("all");
+
+  var XP = {
+    dcf: ["DCF valuation", "In my Lowe's equity research report I forecast revenue, margins and free cash flow for five years, then discounted them to a value. The adjustable model on the DCF page uses the same method.", "model", "Try the DCF model"],
+    montecarlo: ["Monte Carlo simulation", "In the Lowe's report I simulated tariff, inflation and other macro assumptions to see how far the valuation could move. The valuation held up across scenarios.", "projects", "See the project"],
+    python: ["Python", "I built the trading strategy end to end in Python: pandas and NumPy for the data, scikit-learn for the model, and Backtrader for backtesting.", "projects", "See the project"],
+    ml: ["Machine learning", "A Random Forest scored the confidence of each EMA crossover signal so that weak signals could be filtered out. It builds on my Machine Learning for Finance coursework at Johns Hopkins.", "projects", "See the project"],
+    risk: ["Risk control", "The trading strategy uses a dollar-neutral framework that removes market beta exposure, with risk controls and lower turnover.", "projects", "See the project"],
+    dupont: ["DuPont analysis", "For the CFA Institute Research Challenge on Franklin Templeton, I used DuPont and ratio analysis to track profitability, returns and operating efficiency across several fiscal years.", "projects", "See the project"],
+    fsa: ["Financial statement analysis", "I analyzed Franklin Templeton's statements for the Research Challenge. In my current role I review client financial statements to assess income, liabilities and deduction eligibility.", null, null],
+    quantmod: ["Quantitative modeling", "I completed Fundamentals of Quantitative Modeling at the University of Pennsylvania, which complements the econometrics focus of my Johns Hopkins M.S.", null, null],
+    prompt: ["Prompt engineering", "I hold a Prompt Engineering Certificate from Columbia University, and I use AI tools for research and data cleaning, checking the output against filings and source data.", null, null]
+  };
+  var xpBtns = document.querySelectorAll("[data-xp]");
+  function showXp(k) {
+    var d = XP[k], h = "<h3>" + d[0] + "</h3><p>" + d[1] + "</p>";
+    if (d[2]) h += '<a href="#' + d[2] + '" data-nav="' + d[2] + '">' + d[3] + " &rarr;</a>";
+    $("xpPanel").innerHTML = h;
+    xpBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-xp") === k ? "true" : "false"); });
+  }
+  xpBtns.forEach(function (b) { b.addEventListener("click", function () { showXp(b.getAttribute("data-xp")); }); });
+  showXp("dcf");
+
+  var root = document.documentElement;
+  function isDark() {
+    var a = root.getAttribute("data-theme");
+    if (a) return a === "dark";
+    return !!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+  try { var st = localStorage.getItem("theme"); if (st) root.setAttribute("data-theme", st); } catch (e) {}
+  $("themeBtn").addEventListener("click", function () {
+    var n = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", n);
+    try { localStorage.setItem("theme", n); } catch (e) {}
+  });
 
   var VIEWS = ["home", "background", "projects", "model", "contact"];
   var META = {
@@ -492,6 +682,7 @@ html { scroll-behavior: smooth; }
       }
     }
     document.body.className = "view-" + v;
+    if (v === "home") countUp();
     var nx = $("next"), t = NEXT[v];
     nx.hidden = !t;
     if (t) nx.innerHTML = '<a href="#' + t[0] + '" data-nav="' + t[0] + '">Next: ' + t[1] + ' &rarr;</a>';
