@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Anuj Lakra: entry-level finance candidate. M.S. Finance (Johns Hopkins), B.S. Finance (Penn State), CFA Level II Candidate. Equity research, quantitative strategy and FP&amp;A.">
+<meta property="og:title" content="Anuj Lakra Finance Portfolio">
+<meta property="og:description" content="Equity research, quantitative strategy and valuation work from a Johns Hopkins M.S. Finance graduate and CFA Level II Candidate.">
+<meta property="og:type" content="website">
 <style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
 <title>Anuj Lakra Finance Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -95,6 +99,29 @@ h2, h3 { text-wrap: balance; }
 .foot-close, .foot-notes { text-align: center; }
 .foot-close .foot-sub { margin: 0 auto; }
 .foot-actions { justify-content: center; }
+.offer-lead { font-family: var(--font-display); font-size: 21px; line-height: 1.5; max-width: 60ch; margin: 0 0 26px; }
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.role { display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 22px; text-decoration: none; color: var(--fg); transition: border-color .15s ease, transform .15s ease; min-width: 0; }
+.role:hover { border-color: var(--accent); transform: translateY(-2px); }
+.role .r-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.role h3 { font-size: 20px; margin: 0; }
+.role p { margin: 0; font-size: 15px; color: var(--muted); }
+.role ul { margin: 0; padding-left: 18px; font-size: 15px; }
+.role li { margin-bottom: 5px; }
+.role .r-go { margin-top: auto; padding-top: 8px; font-weight: 600; color: var(--accent); font-size: 15px; }
+.dayone { margin-top: 22px; padding: 18px 22px; border: 1px dashed var(--rule); border-radius: 6px; }
+.dayone b { font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+.dayone ul { margin: 0; padding-left: 18px; columns: 2; column-gap: 32px; font-size: 15px; }
+.dayone li { margin-bottom: 4px; break-inside: avoid; }
+@media (max-width: 800px) { .roles { grid-template-columns: minmax(0, 1fr); } .dayone ul { columns: 1; } }
+.steps { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }
+.steps li { padding: 18px 18px 6px 0; }
+.steps li + li { padding-left: 18px; border-left: 1px solid var(--rule); }
+.steps .n { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); display: block; margin-bottom: 6px; }
+.steps h4 { font-family: var(--font-display); font-size: 17px; margin: 0 0 6px; line-height: 1.3; }
+.steps p { font-size: 15px; color: var(--muted); margin: 0; }
+.steps .proof { display: block; margin-top: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--fg); }
+@media (max-width: 800px) { .steps { grid-template-columns: minmax(0, 1fr); } .steps li, .steps li + li { padding: 16px 0; border-left: 0; border-top: 1px solid var(--rule); } .steps li:first-child { border-top: 0; } }
 .start-list { margin-top: 14px; border-bottom: 1px solid var(--rule); }
 .start-row { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; padding: 18px 4px; border-top: 1px solid var(--rule); text-decoration: none; color: var(--fg); transition: background .15s ease, padding-left .15s ease; }
 .start-row:hover { background: var(--surface); padding-left: 12px; }
@@ -209,6 +236,7 @@ footer { border-top: 1px solid var(--band-line); padding: 26px 0 32px; display: 
 .foot-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3.6vw, 30px); line-height: 1.2; color: var(--band-fg); margin: 0 0 8px; }
 .foot-sub { font-size: 15px; color: var(--band-muted); margin: 0; max-width: 56ch; }
 .foot-title sup, .foot-sub sup { color: var(--band-accent); }
+footer .foot-notes, footer .foot-notes p { text-align: center; }
 .foot-notes p { margin: 0 0 4px; font-family: var(--font-mono); font-size: 12px; color: var(--band-muted); }
 .foot-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .foot-base { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
@@ -261,6 +289,7 @@ html { scroll-behavior: smooth; }
         <div class="cta">
           <a class="btn solid" href="#projects" data-nav="projects">View projects</a>
           <a class="btn line" href="#contact" data-nav="contact">Contact me</a>
+          <a class="btn line" href="Anuj_Lakra_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
           <a class="btn line" href="https://www.linkedin.com/in/anujlakra/">LinkedIn</a>
         </div>
       </div>
@@ -308,6 +337,21 @@ html { scroll-behavior: smooth; }
               <li>Dean's List, 4 semesters</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" data-view="projects">
+      <div class="sec-head">
+        <h2>How I work</h2>
+        <div class="sec-body">
+          <h3>From the business to a number I can defend</h3>
+          <ol class="steps">
+            <li><span class="n">STEP 1</span><h4>Understand the business</h4><p>Strategy, liquidity, capital allocation and industry conditions come before any spreadsheet.</p><span class="proof">Seen in: Lowe's report</span></li>
+            <li><span class="n">STEP 2</span><h4>Build the forecast</h4><p>Revenue, operating margins and free cash flow, with every assumption stated.</p><span class="proof">Seen in: 5-year model</span></li>
+            <li><span class="n">STEP 3</span><h4>Stress-test it</h4><p>Simulate the macro risks and see how far the answer moves.</p><span class="proof">Seen in: Monte Carlo</span></li>
+            <li><span class="n">STEP 4</span><h4>Cross-check it</h4><p>Compare against peers and ratios such as DuPont before trusting the result.</p><span class="proof">Seen in: comps, Franklin Templeton</span></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -399,6 +443,59 @@ html { scroll-behavior: smooth; }
       </div>
     </section>
 
+    <section id="offer" data-view="home">
+      <div class="sec-head">
+        <h2>What I offer</h2>
+        <div class="sec-body">
+          <p class="offer-lead">I can build a model, defend the assumptions behind it, and explain the result in plain English. Here is where that fits on your team.</p>
+          <div class="roles">
+            <a class="role" href="#projects" data-nav="projects">
+              <span class="r-kicker">Role fit</span>
+              <h3>Equity Research Analyst</h3>
+              <p>Fundamental research, valuation and a clear recommendation.</p>
+              <ul>
+                <li>Lowe's report: 5-year model, DCF, comps, Monte Carlo</li>
+                <li>CFA Research Challenge on Franklin Templeton</li>
+                <li>CFA Level II Candidate</li>
+              </ul>
+              <span class="r-go">See the research &rarr;</span>
+            </a>
+            <a class="role" href="#projects" data-nav="projects">
+              <span class="r-kicker">Role fit</span>
+              <h3>Quantitative Analyst</h3>
+              <p>Data-driven strategies with the risk controls built in.</p>
+              <ul>
+                <li>Python strategy across equities, bonds, commodities and FX</li>
+                <li>Random Forest signal filter, dollar-neutral design</li>
+                <li>M.S. with an econometrics focus</li>
+              </ul>
+              <span class="r-go">See the strategy &rarr;</span>
+            </a>
+            <a class="role" href="#background" data-nav="background">
+              <span class="r-kicker">Role fit</span>
+              <h3>Financial Analyst (FP&amp;A)</h3>
+              <p>Forecasting, variance thinking and careful work with financials.</p>
+              <ul>
+                <li>Forecast and sensitivity modeling in Excel</li>
+                <li>Reviews client financial statements today</li>
+                <li>Tableau and Capital IQ</li>
+              </ul>
+              <span class="r-go">See my background &rarr;</span>
+            </a>
+          </div>
+          <div class="dayone">
+            <b>What I bring on day one</b>
+            <ul>
+              <li>Models built so another person can audit them</li>
+              <li>Python for data work and backtesting</li>
+              <li>Written research with a clear conclusion</li>
+              <li>Accuracy with sensitive financial data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="start" data-view="home">
       <div class="sec-head">
         <h2>Start here</h2>
@@ -474,11 +571,14 @@ html { scroll-behavior: smooth; }
   <div class="wrap">
     <div class="contact-pane" data-view="contact">
     <h2>Open to entry-level finance roles</h2>
-    <p>Equity research, quantitative investing and corporate finance (FP&amp;A). Based in Hayward, CA and willing to relocate.</p>
+    <p>If you are hiring for equity research, quantitative investing or corporate finance (FP&amp;A), I would like to hear about the role. Based in Hayward, CA and willing to relocate.</p>
     <div class="contact-rows">
       <div class="crow">
         <div><span class="k">Email</span><span class="v" id="email">anujlakra13@gmail.com</span></div>
         <button class="copy" id="copyBtn" type="button">Copy</button>
+      </div>
+      <div class="crow">
+        <div><span class="k">Résumé</span><a class="v" href="Anuj_Lakra_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></div>
       </div>
       <div class="crow">
         <div><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/anujlakra/">linkedin.com/in/anujlakra</a></div>
@@ -491,7 +591,7 @@ html { scroll-behavior: smooth; }
         <p class="foot-sub">Thanks for reading all the way to the end. If anything here sparked a question, I would enjoy hearing from you.<sup>&dagger;</sup></p>
       </div>
       <div class="foot-actions">
-        <a class="btn solid" href="mailto:anujlakra13@gmail.com">Email me</a>
+        <a class="btn solid" href="mailto:anujlakra13@gmail.com?subject=Opportunity%20for%20Anuj%20Lakra">Email me</a>
         <a class="btn line" href="https://www.linkedin.com/in/anujlakra/">LinkedIn</a>
       </div>
       <div class="foot-notes">
